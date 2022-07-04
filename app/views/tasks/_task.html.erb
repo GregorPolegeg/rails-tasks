@@ -1,0 +1,32 @@
+<div id="<%= dom_id task %>">
+  <div class="columns mt-6 is-centered">
+    <div class="column is-one-third">
+      <div class="card" >
+        <header class="card-header p-2 is-size-5">
+          <p>Task - <%= task.task_name %></p>
+        </header>
+
+        <% if task.finished == true %>
+          <div class="card-content has-background-success">
+        <% else %>
+          <div class="card-content has-background-warning">
+        <% end %> 
+          <div class="content">
+            <p class="has-text-weight-bold ">Description:</p>
+            <p class=""><%= task.description %></p>
+          </div>
+            <div style = "display:flex; align-items:center; justify-content:center; gap:10px;" class="mt-4 card-footer">
+              <% if task.finished == true %>
+              <%= button_to 'Unfinish', toggle_finished_task_path(task.id) ,method: :patch, class:"button is-link mt-3" %>
+              <% else %>
+              <%= button_to 'Finish', toggle_finished_task_path(task.id) ,method: :patch, class:"button is-success mt-3 " %>
+              <% end %>
+
+              <%= button_to "Delete", task, method: :delete, class:"button is-danger mt-3"%>
+
+              <%= link_to "View", task, class:"button is-info mt-3" %>
+      </div>
+    </div>
+  </div>
+ </div>
+</div>

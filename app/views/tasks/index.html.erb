@@ -1,0 +1,9 @@
+<% content_for :title do %>
+Tasks &ndash; <%= DateTime.now.strftime("%B, %d  %Y") %>
+<% end %>
+
+<div id="tasks">
+  <% @tasks.each do |task| %>
+    <%= render task %>
+  <% end %>
+</div>

@@ -1,0 +1,1 @@
+Time::DATE_FORMATS[:formated_date] = "%B %e %y"

@@ -1,0 +1,31 @@
+<%= form_with(model: task) do |form| %>
+  <div class="container is-max-desktop mt-5">
+    <div class="box" style="padding:30px">
+      <div class="field">
+        <%= form.label :task_name, class:"label mb-5 is-size-5" %>
+        <%= form.text_field :task_name, class:"input" %>
+      </div>
+
+      <div class="field">
+        <%= form.label :description, class:"label mt-5 mb-5 is-size-5" %>
+        <%= form.text_area :description, class:"input" %>
+      </div>
+      <div class= "mt-5">
+        <%= form.submit class: "button is-success" %>
+      </div>
+    </div>
+    <% if task.errors.any? %>
+    <article class="message is-danger">
+      <div class="message-header">
+        <p>Error</p>
+        <button class="delete" aria-label="delete"></button>
+      </div>
+      <div class="message-body" style="list-style: none">
+        <% task.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+        <% end %>
+      </div>
+    </article>
+  </div>
+<% end %>
+<% end %>

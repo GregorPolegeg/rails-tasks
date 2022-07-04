@@ -1,0 +1,21 @@
+<section class="hero is-small is-link has-text-centered">
+  <div class="hero-body">
+    <div class="level">
+      <div class="level-item has-text-centered">
+        <div style= 'width: 40px; margin-right: 20px; filter: invert(100%);'><%= image_tag("check-solid.svg") %></div>
+        <h1 class="title is-3 ">
+              <% if content_for(:title) %>
+                <%= yield :title %>
+              <% else %>
+              <%= link_to "Create task", tasks_path %>
+              <% end %>
+        </h1>
+      </div>
+      <div class="level-item has-text-centered">
+        <% unless current_page?('/tasks/new') %>
+          <%= link_to "Create a Task", new_task_path, class: "button is-success " %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
